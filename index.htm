@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Automation</title>
+  <title>CodePen - 3D Navbar Animation(Front_End_Class)</title>
   <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
@@ -411,6 +411,14 @@ const DarkShadow = "white"
 const overlayelem = "rgba(43, 51, 59, 0.8)"
 const Soverlayelem = "rgba(128, 128, 128, 0.8);"
 var isDark = false
+document.getElementById("container").style.backgroundImage = SDarkBg
+    document.getElementById("shadow").style.backgroundColor = SDarkShadow
+    document.getElementById("shadow1").style.backgroundColor = SDarkShadow
+    document.getElementById("OverElem").style.backgroundColor = Soverlayelem
+    var ray = document.getElementsByClassName("HREF_ELEM")
+    for (i = 0; i < ray.length; i++) {
+      ray[i].style.color = SDarkText;
+    }
 function SetMode(){
   if(isDark === false){
     document.getElementById("container").style.backgroundImage = DarkBg

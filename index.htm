@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - 3D Navbar Animation(Front_End_Class)</title>
+  <title>Automation</title>
   <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
@@ -325,6 +325,64 @@ ul {
   height:45px;
   transition:all 0.5s;
 }
+#HREF222{
+  background-color:transparent;
+  outline:none;
+  background-size: cover;
+  background-image: none;
+  opacity: 0;
+  border:0;
+  transition:all 0.5s;
+  display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#HREF2222{
+  background-color:transparent;
+  outline:none;
+  background-size: cover;
+  background-image: none;
+  opacity: 0;
+  border:0;
+  transition:all 0.5s;
+  display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#HREF22222{
+  background-color:transparent;
+  outline:none;
+  background-size: cover;
+  background-image: none;
+  opacity: 0;
+  border:0;
+  transition:all 0.5s;
+  display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.ProdNM{
+  width:200px;
+  height:20px;
+  background-color:rgba(255, 255, 255, 0.178);
+  margin:auto;
+  list-style-type: disc;
+}
+.ProdNM2{
+  width:250px;
+  height:20px;
+  background-color:rgba(255, 255, 255, 0.178);
+  margin:auto;
+  list-style-type: disc;
+}
+.ontopBAR{
+  width:250px;
+  height:40px;
+  background-color: rgb(94, 109, 128);
+}
   </style>
 
 </head>
@@ -335,12 +393,12 @@ ul {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3D Navbar Animation</title>
+    <title>Automation</title>
   </head>
   <body>
-    <div id="topelem"></div>
     <div class="container" id="container">
-      <div class="navbar">
+    <div id="topelem"></div>
+      <div class="navbar" id="NAVBR">
         <div class="menu">
           <h3 class="logo">Automation<span>-Italia</span></h3>
           <div class="hamburger-menu">
@@ -353,12 +411,7 @@ ul {
         <div class="main">
           <header>
             <div class="overlay" id="OverElem">
-              <div class="inner">
-                <h2 class="title">La qualità</h2>
-                <p>
-                  sviluppatori software per automazione dei social media
-                </p>
-                <button class="btn">Di più</button>
+              <div class="inner" id="TEXTFIELD">
               </div>
             </div>
           </header>
@@ -369,20 +422,20 @@ ul {
         <div id="shadow1" class="shadow two"></div>
       </div>
 
-      <div class="links">
+      <div class="links" id="LINKS">
         <ul>
           <div class="_1_">
             <li>
-              <a class="HREF_ELEM" href="#" style="--i: 0.1s;">Servizi</a>
+              <button class="HREF_ELEM" onclick="TransformService()" style="--i: 0.1s;" id="HREF22222">HOME</button>
             </li>
             <li>
-              <a class="HREF_ELEM" href="#" style="--i: 0.2s;">Recensioni</a>
+              <button class="HREF_ELEM" onclick="TransformService(serviceelem=null)" style="--i: 0.1s;" id="HREF222">Servizi</button>
             </li>
             <li>
-              <a class="HREF_ELEM" href="https://wa.me/393317704837" style="--i: 0.15s;">Assistenza</a>
+              <button class="HREF_ELEM" id="HREF2222" onclick="TransformService(serviceelem=true)" style="--i: 0.15s;">Assistenza</button>
             </li>
             <li style="margin:0">
-              <button class="HREF_ELEM" id="HREF22" href="#" style="--i: 0.25s;" onclick="SetMode()"></button>
+              <button class="HREF_ELEM" id="HREF22" href="#" style="--i: 0.25s;box-shadow:5px 5px 10px 2px black;border-radius: 100px;margin-right: 10px;" onclick="SetMode()"></button>
             </li>
           </div>
         </ul>
@@ -390,7 +443,6 @@ ul {
     </div>
   </body>
 </html>
-<!-- partial -->
   <script>
     const hamburger_menu = document.querySelector(".hamburger-menu");
 const container = document.querySelector(".container");
@@ -398,8 +450,22 @@ const container = document.querySelector(".container");
 hamburger_menu.addEventListener("click", () => {
     if(container.classList.toggle("active")===true){
       document.getElementById("HREF22").style.opacity = "1";
+      document.getElementById("HREF222").style.opacity = "1";
+      document.getElementById("HREF2222").style.opacity = "1";
+      document.getElementById("HREF22222").style.opacity = "1";
+      document.getElementById("OverElem").style.borderRadius = "20px"
+      document.getElementById("shadow").style.borderRadius = "20px"
+      document.getElementById("shadow1").style.borderRadius = "20px"
     }
-    else {document.getElementById("HREF22").style.opacity = "0";};
+    else {
+      document.getElementById("HREF22").style.opacity = "0";
+      document.getElementById("HREF222").style.opacity = "0";
+      document.getElementById("HREF2222").style.opacity = "0";
+      document.getElementById("HREF22222").style.opacity = "0";
+      document.getElementById("OverElem").style.borderRadius = "0px"
+      document.getElementById("shadow").style.borderRadius = "0px"
+      document.getElementById("shadow1").style.borderRadius = "0px"
+    };
 
 });
 const DarkText = "#eee"
@@ -443,6 +509,7 @@ function SetMode(){
     isDark = false;
   }
 }
+SetMode()
 var elemScrolledIndex = 0
         window.addEventListener('scroll', function() {
            var element = document.querySelector('body');
@@ -453,13 +520,56 @@ var elemScrolledIndex = 0
            async function Nopadding(){
                await sleep(100)
             document.getElementById("topelem").style.paddingTop = "0px"
+            document.getElementById("shadow").style.marginTop = "0px"
+            document.getElementById("shadow1").style.marginTop = "0px"
+            document.getElementById("NAVBR").style.paddingTop = "0px";
+            document.getElementById("LINKS").style.marginTop = "0px";
            }
            if (position.top === 0) {
               document.getElementById("topelem").style.transition = "all 0.3s";
               document.getElementById("topelem").style.paddingTop = "30px";
+              document.getElementById("shadow").style.transition = "all 0.3s";
+              document.getElementById("shadow1").style.transition = "all 0.3s";
+              document.getElementById("NAVBR").style.transition = "all 0.3s";
+              document.getElementById("NAVBR").style.paddingTop = "30px";
+              document.getElementById("LINKS").style.transition = "all 0.3s";
+              document.getElementById("LINKS").style.marginTop = "30px";
+              document.getElementById("shadow1").style.marginTop = "30px";
+            document.getElementById("shadow").style.marginTop = "30px"
               Nopadding();
            }
         });
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+            }
+async function Wait(ms){
+  await sleep(ms)
+}
+var service = true
+var PreText = '<h2 class="title">La qualità</h2><p>sviluppatori software per automazione dei social media</p><button class="btn" onclick="TransformService()">Di più</button>'
+var AfterText = '<h3 class="maintitle" style="text-transform: uppercase;">programmi disponibili</h3><ol><li class="ProdNM">SUITE AUTOMATION</li><li class="ProdNM">SPAM DM</li><li class="ProdNM">AUTO LIKE/FOLLOW</li><li class="ProdNM">ESTRATTORE LISTE</li><li class="ProdNM">COMMENTATORE</li><li class="ProdNM">AUTO TAG IG</li><li class="ProdNM">SBAN ULTRA</li><li class="ProdNM">AMAZON (VARIE)</li><li class="ProdNM">AUTO WHATSAPP</li></ol><h4>Anche su ordinazione!</h4><br><br><div class="ontopBAR"><h2>ALTRO</h2><ol style="padding-top:10px;"><li class="ProdNM2" style="list-style-type: disc;">AGGIORNAMENTI GRATUITI</li><li class="ProdNM2" style="list-style-type: disc;">ASSISTENZA GRATIS </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">funzionalità garantita </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">no rimborso dopo 3 giorni </li></ol></div><br><br><br><br><button class="btn" onclick="TransformService()">INDIETRO</button>'
+var ctnText = '<a class="btn" style="width:150px;text-align:center" href="https://wa.me/393317704837">WHATSAPP</a><br><br><a class="btn" style="width:150px;text-align:center" href="tel:+393317704837">TELEFONO</a><br><br><a class="btn" href="mailto:automation.it99@gmail.com" style="width:150px;text-align:center">GMAIL</a>'
+function TransformService(serviceelem=false){
+  if(serviceelem==true){
+      document.getElementById("TEXTFIELD").innerHTML = ctnText
+      document.getElementById("OverElem").style.filter = "";
+      service = false
+      return
+    }
+  if(serviceelem === false){
+    document.getElementById("OverElem").style.alignItems = "";
+    document.getElementById("TEXTFIELD").innerHTML = PreText
+    Wait(5000)
+    document.getElementById("OverElem").style.filter = "";
+    service = true
+  }
+  else{
+    document.getElementById("TEXTFIELD").innerHTML = AfterText
+    document.getElementById("OverElem").style.filter = "";
+    service = false
+  }
+}
+document.getElementById("TEXTFIELD").innerHTML = PreText
   </script>
 
 </body>

@@ -2,6 +2,8 @@
 <html lang="it" >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Automation</title>
   <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
@@ -546,27 +548,31 @@ async function Wait(ms){
 }
 var service = true
 var PreText = '<h2 class="title">LA QUALITÀ</h2><p>sviluppatori software per automazione dei social media</p><button class="btn" onclick="TransformService(serviceelem=null)">Di più</button>'
-var AfterText = '<h3 class="maintitle" style="text-transform: uppercase;">programmi disponibili</h3><ol><li class="ProdNM">SUITE AUTOMATION</li><li class="ProdNM">SPAM DM</li><li class="ProdNM">AUTO LIKE/FOLLOW</li><li class="ProdNM">ESTRATTORE LISTE</li><li class="ProdNM">COMMENTATORE</li><li class="ProdNM">AUTO TAG IG</li><li class="ProdNM">SBAN ULTRA</li><li class="ProdNM">AMAZON (VARIE)</li><li class="ProdNM">AUTO WHATSAPP</li></ol><h4>Anche su ordinazione!</h4><br><br><div class="ontopBAR"><h2>ALTRO</h2><ol style="padding-top:10px;"><li class="ProdNM2" style="list-style-type: disc;">AGGIORNAMENTI GRATUITI</li><li class="ProdNM2" style="list-style-type: disc;">ASSISTENZA GRATIS </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">funzionalità garantita </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">no rimborso dopo 3 giorni </li></ol></div><br><br><br><br><button class="btn" onclick="TransformService()">INDIETRO</button>'
+var AfterText = '<h3 class="maintitle" style="text-transform: uppercase;">programmi disponibili</h3><ol><li class="ProdNM">SUITE AUTOMATION</li><li class="ProdNM">SPAM DM</li><li class="ProdNM">AUTO LIKE/FOLLOW</li><li class="ProdNM">ESTRATTORE LISTE</li><li class="ProdNM">COMMENTATORE</li><li class="ProdNM">AUTO TAG IG</li><li class="ProdNM">SBAN ULTRA</li><li class="ProdNM">AMAZON (VARIE)</li><li class="ProdNM">AUTO WHATSAPP</li></ol><h4>Anche su ordinazione!</h4><br><br><div class="ontopBAR"><h2>ALTRO</h2><ol style="padding-top:10px;"><li class="ProdNM2" style="list-style-type: disc;">AGGIORNAMENTI GRATUITI</li><li class="ProdNM2" style="list-style-type: disc;">ASSISTENZA GRATIS </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">funzionalità garantita </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">no rimborso dopo 3 giorni </li></ol></div><br><br><br><br><button class="btn" onclick="TransformService()">INDIETRO</button><br><br><br><button class="btn" onclick="window.open("https://automation-it0.github.io/Presentation/prods.htm","_self")">Di più</button>'
 var ctnText = '<a class="btn" style="width:150px;text-align:center" href="https://wa.me/393317704837">WHATSAPP</a><br><br><a class="btn" style="width:150px;text-align:center" href="tel:+393317704837">TELEFONO</a><br><br><a class="btn" href="mailto:automation.it99@gmail.com" style="width:150px;text-align:center">GMAIL</a>'
+var deg = 360
 function TransformService(serviceelem=false){
+  document.getElementById("TEXTFIELD").style.transition = "all 0.5s";
+  document.getElementById("TEXTFIELD").style.transform = 'rotate('+deg+'deg)';
+  deg = deg + 360
   if(serviceelem==true){
       document.getElementById("TEXTFIELD").innerHTML = ctnText
-      document.getElementById("OverElem").style.filter = "";
       service = false
+      document.getElementById("TEXTFIELD").style.transform = "rotate("+deg+"deg)";
+      deg = deg + 360
       return
     }
   if(serviceelem === false){
-    document.getElementById("OverElem").style.alignItems = "";
     document.getElementById("TEXTFIELD").innerHTML = PreText
-    Wait(5000)
-    document.getElementById("OverElem").style.filter = "";
     service = true
   }
   else{
     document.getElementById("TEXTFIELD").innerHTML = AfterText
-    document.getElementById("OverElem").style.filter = "";
     service = false
   }
+  Wait(500)
+  document.getElementById("TEXTFIELD").style.transform = "rotate("+deg+"deg)";
+  deg = deg + 360
 }
 document.getElementById("TEXTFIELD").innerHTML = PreText
   </script>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="it" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Automation</title>
+  <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+button {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #485461;
+  background-image: linear-gradient(135deg, #666769 0%, #919191 74%);
+  overflow-x: hidden;
+  transform-style: preserve-3d;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 3rem;
+}
+
+.menu {
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 4rem;
+}
+
+.logo span {
+  font-weight: 300;
+}
+
+.hamburger-menu {
+  height: 4rem;
+  width: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 1.9rem;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: #eee;
+  transition: 0.5s;
+  position: relative;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #eee;
+  transition: 0.5s;
+}
+
+.bar:before {
+  transform: translateY(-9px);
+}
+
+.bar:after {
+  transform: translateY(9px);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  overflow: hidden;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+header {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  max-width: 35rem;
+  text-align: center;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 2.7rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.8rem;
+  background-color: #1179e7;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container.active .bar {
+  transform: rotate(360deg);
+  background-color: transparent;
+}
+
+.container.active .bar:before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar:after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.container.active .main {
+  animation: main-animation 0.5s ease;
+  cursor: pointer;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+
+@keyframes main-animation {
+  from {
+    transform: translate(0);
+  }
+
+  to {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+
+.links {
+  position: absolute;
+  width: 30%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 600px){
+  .links{height:100px;width:100%;}
+  ._1_,._2_{
+    width: auto;
+    display: flex;
+  }
+  ._1_ *,._2_ *{
+    padding:5px;
+    justify-content:center;
+  }
+  ._1_ li,._2_ li{
+    margin:auto;
+  } 
+  .links ul{position: absolute; top:50px;width:100%;}
+}
+ul {
+  list-style: none;
+}
+.links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 0.7rem 0;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: hide 0.5s forwards ease;
+}
+
+.links a:hover {
+  color: rgb(95, 95, 95);
+}
+
+.container.active .links a {
+  animation: appear 0.5s forwards ease var(--i);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: 0.5s;
+  background-color: black;
+}
+
+.shadow.one {
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.shadow.two {
+  z-index: -2;
+  opacity: 0.1;
+}
+
+.container.active .shadow.one {
+  animation: shadow-one 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+
+@keyframes shadow-one {
+  0% {
+    transform: translate(0);
+  }
+
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+}
+
+.container.active .shadow.two {
+  animation: shadow-two 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes shadow-two {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+}
+
+.container.active .main:hover + .shadow.one {
+  transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+}
+
+.container.active .main:hover {
+  transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
+}
+#HREF22{
+  background-color:transparent;outline:none;background-image:url(data/moon.png);background-size: cover;
+  opacity: 0;
+  border:0;
+  width:45px;
+  height:45px;
+  transition:all 0.5s;
+}
+#HREF222{
+  background-color:transparent;
+  outline:none;
+  background-size: cover;
+  background-image: none;
+  opacity: 0;
+  border:0;
+  transition:all 0.5s;
+  display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#HREF2222{
+  background-color:transparent;
+  outline:none;
+  background-size: cover;
+  background-image: none;
+  opacity: 0;
+  border:0;
+  transition:all 0.5s;
+  display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#HREF22222{
+  background-color:transparent;
+  outline:none;
+  background-size: cover;
+  background-image: none;
+  opacity: 0;
+  border:0;
+  transition:all 0.5s;
+  display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.ProdNM{
+  width:200px;
+  height:20px;
+  background-color:rgba(255, 255, 255, 0.178);
+  margin:auto;
+  list-style-type: disc;
+}
+.ProdNM2{
+  width:250px;
+  height:20px;
+  background-color:rgba(255, 255, 255, 0.178);
+  margin:auto;
+  list-style-type: disc;
+}
+.ontopBAR{
+  width:250px;
+  height:40px;
+  background-color: rgb(94, 109, 128);
+}
+  </style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automation</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+    <div id="topelem"></div>
+      <div class="navbar" id="NAVBR">
+        <div class="menu">
+          <h3 class="logo">Automation<span>-Italia</span></h3>
+          <div class="hamburger-menu">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container" >
+        <div class="main">
+          <header>
+            <div class="overlay" id="OverElem">
+              <div class="inner" id="TEXTFIELD">
+              </div>
+            </div>
+          </header>
+          <br>
+        </div>
+
+        <div id="shadow" class="shadow one"></div>
+        <div id="shadow1" class="shadow two"></div>
+      </div>
+
+      <div class="links" id="LINKS">
+        <ul>
+          <div class="_1_">
+            <li>
+              <button class="HREF_ELEM" onclick="TransformService()" style="--i: 0.1s;" id="HREF22222">HOME</button>
+            </li>
+            <li>
+              <button class="HREF_ELEM" onclick="TransformService(serviceelem=null)" style="--i: 0.1s;" id="HREF222">Servizi</button>
+            </li>
+            <li>
+              <button class="HREF_ELEM" id="HREF2222" onclick="TransformService(serviceelem=true)" style="--i: 0.15s;">Assistenza</button>
+            </li>
+            <li style="margin:0">
+              <button class="HREF_ELEM" id="HREF22" href="#" style="--i: 0.25s;box-shadow:5px 5px 10px 2px black;border-radius: 100px;margin-right: 10px;" onclick="SetMode()"></button>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+  <script>
+    const hamburger_menu = document.querySelector(".hamburger-menu");
+const container = document.querySelector(".container");
+
+hamburger_menu.addEventListener("click", () => {
+    if(container.classList.toggle("active")===true){
+      document.getElementById("HREF22").style.opacity = "1";
+      document.getElementById("HREF222").style.opacity = "1";
+      document.getElementById("HREF2222").style.opacity = "1";
+      document.getElementById("HREF22222").style.opacity = "1";
+      document.getElementById("OverElem").style.borderRadius = "20px"
+      document.getElementById("shadow").style.borderRadius = "20px"
+      document.getElementById("shadow1").style.borderRadius = "20px"
+    }
+    else {
+      document.getElementById("HREF22").style.opacity = "0";
+      document.getElementById("HREF222").style.opacity = "0";
+      document.getElementById("HREF2222").style.opacity = "0";
+      document.getElementById("HREF22222").style.opacity = "0";
+      document.getElementById("OverElem").style.borderRadius = "0px"
+      document.getElementById("shadow").style.borderRadius = "0px"
+      document.getElementById("shadow1").style.borderRadius = "0px"
+    };
+
+});
+const DarkText = "#eee"
+const SDarkText = "black"
+const DarkBg = "linear-gradient(135deg, #485461 0%, #28313b 74%)"
+const SDarkBg = "linear-gradient(135deg, #9C9C9C 0%, #CCFBFF 74%)"
+const SDarkShadow = "black"
+const DarkShadow = "white"
+const overlayelem = "rgba(43, 51, 59, 0.8)"
+const Soverlayelem = "rgba(128, 128, 128, 0.8);"
+var isDark = false
+document.getElementById("container").style.backgroundImage = SDarkBg
+    document.getElementById("shadow").style.backgroundColor = SDarkShadow
+    document.getElementById("shadow1").style.backgroundColor = SDarkShadow
+    document.getElementById("OverElem").style.backgroundColor = Soverlayelem
+    var ray = document.getElementsByClassName("HREF_ELEM")
+    for (i = 0; i < ray.length; i++) {
+      ray[i].style.color = SDarkText;
+    }
+function SetMode(){
+  if(isDark === false){
+    document.getElementById("container").style.backgroundImage = DarkBg
+    document.getElementById("shadow").style.backgroundColor = DarkShadow
+    document.getElementById("shadow1").style.backgroundColor = DarkShadow
+    document.getElementById("OverElem").style.backgroundColor = overlayelem
+    var ray = document.getElementsByClassName("HREF_ELEM")
+    for (i = 0; i < ray.length; i++) {
+      ray[i].style.color = DarkText;
+    }
+    isDark = true;
+  }
+  else{
+    document.getElementById("container").style.backgroundImage = SDarkBg
+    document.getElementById("shadow").style.backgroundColor = SDarkShadow
+    document.getElementById("shadow1").style.backgroundColor = SDarkShadow
+    document.getElementById("OverElem").style.backgroundColor = Soverlayelem
+    var ray = document.getElementsByClassName("HREF_ELEM")
+    for (i = 0; i < ray.length; i++) {
+      ray[i].style.color = SDarkText;
+    }
+    isDark = false;
+  }
+}
+SetMode()
+var elemScrolledIndex = 0
+        window.addEventListener('scroll', function() {
+           var element = document.querySelector('body');
+           var position = element.getBoundingClientRect();
+           function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+            }
+           async function Nopadding(){
+               await sleep(100)
+            document.getElementById("topelem").style.paddingTop = "0px"
+            document.getElementById("shadow").style.marginTop = "0px"
+            document.getElementById("shadow1").style.marginTop = "0px"
+            document.getElementById("NAVBR").style.paddingTop = "0px";
+            document.getElementById("LINKS").style.marginTop = "0px";
+           }
+           if (position.top === 0) {
+              document.getElementById("topelem").style.transition = "all 0.3s";
+              document.getElementById("topelem").style.paddingTop = "35px";
+              document.getElementById("shadow").style.transition = "all 0.3s";
+              document.getElementById("shadow1").style.transition = "all 0.3s";
+              document.getElementById("NAVBR").style.transition = "all 0.3s";
+              document.getElementById("NAVBR").style.paddingTop = "30px";
+              document.getElementById("LINKS").style.transition = "all 0.3s";
+              document.getElementById("LINKS").style.marginTop = "30px";
+              document.getElementById("shadow1").style.marginTop = "40px";
+            document.getElementById("shadow").style.marginTop = "40px"
+              Nopadding();
+           }
+        });
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+            }
+async function Wait(ms){
+  await sleep(ms)
+}
+var service = true
+var PreText = '<h2 class="title">LA QUALITÀ</h2><p>sviluppatori software per automazione dei social media</p><button class="btn" onclick="TransformService(serviceelem=null)">Di più</button>'
+var AfterText = '<h3 class="maintitle" style="text-transform: uppercase;">programmi disponibili</h3><ol><li class="ProdNM">SUITE AUTOMATION</li><li class="ProdNM">SPAM DM</li><li class="ProdNM">AUTO LIKE/FOLLOW</li><li class="ProdNM">ESTRATTORE LISTE</li><li class="ProdNM">COMMENTATORE</li><li class="ProdNM">AUTO TAG IG</li><li class="ProdNM">SBAN ULTRA</li><li class="ProdNM">AMAZON (VARIE)</li><li class="ProdNM">AUTO WHATSAPP</li></ol><h4>Anche su ordinazione!</h4><br><br><div class="ontopBAR"><h2>ALTRO</h2><ol style="padding-top:10px;"><li class="ProdNM2" style="list-style-type: disc;">AGGIORNAMENTI GRATUITI</li><li class="ProdNM2" style="list-style-type: disc;">ASSISTENZA GRATIS </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">funzionalità garantita </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">no rimborso dopo 3 giorni </li></ol></div><br><br><br><br><button class="btn" onclick="TransformService()">INDIETRO</button><br><br><br><button class="btn" onclick="window.open("https://automation-it0.github.io/Presentation/prods.htm","_self")">Di più</button>'
+var ctnText = '<a class="btn" style="width:150px;text-align:center" href="https://wa.me/393317704837">WHATSAPP</a><br><br><a class="btn" style="width:150px;text-align:center" href="tel:+393317704837">TELEFONO</a><br><br><a class="btn" href="mailto:automation.it99@gmail.com" style="width:150px;text-align:center">GMAIL</a>'
+var deg = 360
+function TransformService(serviceelem=false){
+  document.getElementById("TEXTFIELD").style.transition = "all 0.5s";
+  document.getElementById("TEXTFIELD").style.transform = 'rotate('+deg+'deg)';
+  deg = deg + 360
+  if(serviceelem==true){
+      document.getElementById("TEXTFIELD").innerHTML = ctnText
+      service = false
+      document.getElementById("TEXTFIELD").style.transform = "rotate("+deg+"deg)";
+      deg = deg + 360
+      return
+    }
+  if(serviceelem === false){
+    document.getElementById("TEXTFIELD").innerHTML = PreText
+    service = true
+  }
+  else{
+    document.getElementById("TEXTFIELD").innerHTML = AfterText
+    service = false
+  }
+  Wait(500)
+  document.getElementById("TEXTFIELD").style.transform = "rotate("+deg+"deg)";
+  deg = deg + 360
+}
+document.getElementById("TEXTFIELD").innerHTML = PreText
+  </script>
+
+</body>
+</html>

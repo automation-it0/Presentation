@@ -13,7 +13,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-body{user-select:none;}
+
 body,
 button {
   font-family: "Poppins", sans-serif;
@@ -441,10 +441,364 @@ ul {
           </div>
         </ul>
       </div>
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+            *{
+          margin: 0;
+          padding: 0;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+        }
+        body{user-select:none;}
+        h1{
+          font-size: 2.5rem;
+          font-family: 'Montserrat';
+          font-weight: normal;
+          color: #444;
+          text-align: center;
+          margin: 2rem 0;
+        }
+        button {
+          font-family: "Poppins", sans-serif;
+        }
+        .btn {
+          margin-top: 1rem;
+          padding: 0.6rem 1.8rem;
+          background-color: #1179e7;
+          border: none;
+          border-radius: 25px;
+          color: #fff;
+          text-transform: uppercase;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        .Index9Elem{
+          width: 90%;
+          margin: 0 auto;
+          max-width: 80rem;
+        }
+        
+        .CLS_ELEM3s{
+          display: flex;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+        }
+        
+        .CLS_ELEM3{
+          width: calc(25% - 2rem);
+          margin: 1rem;
+          cursor: pointer;
+        }
+        
+        .ContElem98{
+          -webkit-transform-style: preserve-3d;
+                  transform-style: preserve-3d;
+          -webkit-perspective: 1000px;
+                  perspective: 1000px;
+        }
+        
+        .frontStyle98,
+        .back{
+          background-size: cover;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+          border-radius: 10px;
+          background-position: center;
+          -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+          transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+          -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+          transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+          transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+          -webkit-backface-visibility: hidden;
+                  backface-visibility: hidden;
+          text-align: center;
+          min-height: 280px;
+          height: auto;
+          border-radius: 10px;
+          color: #fff;
+          font-size: 1.5rem;
+        }
+        
+        .back{
+          background: #cedce7;
+          background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+          background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+          background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+        }
+        
+        .frontStyle98:after{
+          position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            content: '';
+            display: block;
+            opacity: .6;
+            background-color: #000;
+            -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+            border-radius: 10px;
+        }
+        .ContElem98:hover .frontStyle98,
+        .ContElem98:hover .back{
+            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .back{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .InnerTML{
+            -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+                    transform: translateY(-50%) translateZ(60px) scale(0.94);
+            top: 50%;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            outline: 1px solid transparent;
+            -webkit-perspective: inherit;
+                    perspective: inherit;
+            z-index: 2;
+        }
+        
+        .ContElem98 .back{
+            -webkit-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+        }
+        
+        .ContElem98 .frontStyle98{
+            -webkit-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+        }
+        
+        .ContElem98:hover .back{
+          -webkit-transform: rotateY(0deg);
+                  transform: rotateY(0deg);
+          -webkit-transform-style: preserve-3d;
+                  transform-style: preserve-3d;
+        }
+        
+        .ContElem98:hover .frontStyle98{
+          -webkit-transform: rotateY(-180deg);
+                  transform: rotateY(-180deg);
+          -webkit-transform-style: preserve-3d;
+                  transform-style: preserve-3d;
+        }
+        .frontStyle98 .InnerTML p{
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          position: relative;
+        }
+        
+        .frontStyle98 .InnerTML p:after{
+          content: '';
+          width: 4rem;
+          height: 2px;
+          position: absolute;
+          background: #C6D4DF;
+          display: block;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          bottom: -.75rem;
+        }
+        .frontStyle98 *{
+          color:#fff;
+          text-shadow:2px 5px black
+        }
+        
+        .frontStyle98 .InnerTML span{
+          color: rgba(255,255,255,0.7);
+          font-family: 'Montserrat';
+          font-weight: 300;
+        }
+        
+        @media screen and (max-width: 64rem){
+          .CLS_ELEM3{
+            width: calc(33.333333% - 2rem);
+          }
+        }
+        
+        @media screen and (max-width: 48rem){
+          .CLS_ELEM3{
+            width: calc(50% - 2rem);
+          }
+        }
+        
+        @media screen and (max-width: 32rem){
+          .CLS_ELEM3{
+            width: 100%;
+            margin: 0 0 2rem 0;
+          }
+        }
+        #ELEMINDEX{
+          transition: all 0.5s;
+        }
+        #Index9ElemID{
+          display:none;
+          transition:all 1s;
+        }
+          </style>
+        <div class="Index9Elem" id="Index9ElemID">
+          <div id="ELEMINDEX"></div>
+        
+          <h1 style="color:#fff;">Prodotti</h1>
+          <div class="CLS_ELEM3s">
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/500/500/)">
+                    <div class="InnerTML">
+                      <p>SUITE</p>
+                      <span>Tutti i prodotti automation</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Perfetto per chi ha bisogno di tanti bot in un solo programma</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image:url(https://unsplash.it/511/511/)">
+                    <div class="InnerTML">
+                      <p>Spam DM</p>
+                      <span>Fino a 20k DM</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Perfetto per chi cerca velocità potenza e molte scelte di target</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/502/502/)">
+                    <div class="InnerTML">
+                      <p>Auto IG</p>
+                      <span>Auto like follow e story view</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Perfetto per chi crea molte pagine aumento e deve farle salire</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/503/503/)">
+                    <div class="InnerTML">
+                      <p>Sban</p>
+                      <span>Fino a 10k moduli</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Perfetto per chi ha bisogno di sbannare in fretta, con proxy</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/504/504/">
+                    <div class="InnerTML">
+                      <p>Auto tag</p>
+                      <span>tagga gente nei commenti</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Instagram ti ha limitato i dm? vuoi comunque spammare a cercare clienti? Con questo bot potrai</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/505/505/)">
+                    <div class="InnerTML">
+                      <p>Commentatore</p>
+                      <span>Veloce e potente</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Hai bisogno di mettere tanti commenti ma hai poco tempo? Questo bot lo farà per te</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/506/506/)">
+                    <div class="InnerTML">
+                      <p>Whatsapp</p>
+                      <span>Message autosender</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Stanco di spammare nei gruppi ogni volta? Questo bot lo farà in maniera automatica</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="CLS_ELEM3" ontouchstart="this.classList.toggle('hover');">
+                <div class="ContElem98">
+                  <div class="frontStyle98" style="background-image: url(https://unsplash.it/508/508/)">
+                    <div class="InnerTML">
+                      <p>Estrattore liste</p>
+                      <span>Followers seguiti hashtag</span>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div class="InnerTML">
+                      <p>Hai bisogno di una lista di followers o seguiti di un profilo? Oppure di un hashtag? Questo bot lo farà</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+         <div style="width:100%;height:5px;background-color:black;"></div>
+         <br>
+         <h1 style="color:#fff">PAGA CON</h1>
+         <br>
+         <div style="background-image:url(data/payment.png);background-size: cover;width:360px;height:150px;margin:auto;"></div>
+         <br><br>
+         <div style="width:100%;height:5px;background-color:black;"></div>
+         <br><br>
+
     </div>
   </body>
 </html>
   <script>
+            function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+            }
     const hamburger_menu = document.querySelector(".hamburger-menu");
 const container = document.querySelector(".container");
 
@@ -515,40 +869,36 @@ var elemScrolledIndex = 0
         window.addEventListener('scroll', function() {
            var element = document.querySelector('body');
            var position = element.getBoundingClientRect();
-           function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-            }
            async function Nopadding(){
                await sleep(100)
-            document.getElementById("topelem").style.paddingTop = "0px"
-            document.getElementById("shadow").style.marginTop = "0px"
-            document.getElementById("shadow1").style.marginTop = "0px"
+
             document.getElementById("NAVBR").style.paddingTop = "0px";
             document.getElementById("LINKS").style.marginTop = "0px";
            }
            if (position.top === 0) {
-              document.getElementById("topelem").style.transition = "all 0.3s";
-              document.getElementById("topelem").style.paddingTop = "35px";
-              document.getElementById("shadow").style.transition = "all 0.3s";
-              document.getElementById("shadow1").style.transition = "all 0.3s";
-              document.getElementById("NAVBR").style.transition = "all 0.3s";
+              document.getElementById("topelem").style.transition = "all 0.7s";
+              document.getElementById("shadow").style.transition = "all 0.7s";
+              document.getElementById("shadow1").style.transition = "all 0.7s";
+              document.getElementById("NAVBR").style.transition = "all 0.7s";
               document.getElementById("NAVBR").style.paddingTop = "30px";
-              document.getElementById("LINKS").style.transition = "all 0.3s";
+              document.getElementById("LINKS").style.transition = "all 0.7s";
               document.getElementById("LINKS").style.marginTop = "30px";
-              document.getElementById("shadow1").style.marginTop = "40px";
-            document.getElementById("shadow").style.marginTop = "40px"
+
               Nopadding();
            }
         });
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-            }
+
 async function Wait(ms){
   await sleep(ms)
 }
+var prodsDone = false
+function ShowProds(){
+  if(prodsDone===false){document.getElementById("Index9ElemID").style.height = "";document.getElementById("Index9ElemID").style.display = "block";document.getElementById("SCRLDWD").innerHTML = "DI MENO";prodsDone = true}
+  else{document.getElementById("Index9ElemID").style.height = "0px";document.getElementById("Index9ElemID").style.display = "none";document.getElementById("SCRLDWD").innerHTML = "DI PIù";prodsDone = false}
+}
 var service = true
 var PreText = '<h2 class="title">LA QUALITÀ</h2><p>sviluppatori software per automazione dei social media</p><button class="btn" onclick="TransformService(serviceelem=null)">Di più</button>'
-var AfterText = '<h3 class="maintitle" style="text-transform: uppercase;">programmi disponibili</h3><ol><li class="ProdNM">SUITE AUTOMATION</li><li class="ProdNM">SPAM DM</li><li class="ProdNM">AUTO LIKE/FOLLOW</li><li class="ProdNM">ESTRATTORE LISTE</li><li class="ProdNM">COMMENTATORE</li><li class="ProdNM">AUTO TAG IG</li><li class="ProdNM">SBAN ULTRA</li><li class="ProdNM">AMAZON (VARIE)</li><li class="ProdNM">AUTO WHATSAPP</li></ol><h4>Anche su ordinazione!</h4><br><br><div class="ontopBAR"><h2>ALTRO</h2><ol style="padding-top:10px;"><li class="ProdNM2" style="list-style-type: disc;">AGGIORNAMENTI GRATUITI</li><li class="ProdNM2" style="list-style-type: disc;">ASSISTENZA GRATIS </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">funzionalità garantita </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">no rimborso dopo 3 giorni </li></ol></div><br><br><br><br><button class="btn" onclick="TransformService()">INDIETRO</button><br><br><br><a class="btn" href="./prods.htm","_self")">Di più</button>'
+var AfterText = '<h3 class="maintitle" style="text-transform: uppercase;">programmi disponibili</h3><ol><li class="ProdNM">SUITE AUTOMATION</li><li class="ProdNM">SPAM DM</li><li class="ProdNM">AUTO LIKE/FOLLOW</li><li class="ProdNM">ESTRATTORE LISTE</li><li class="ProdNM">COMMENTATORE</li><li class="ProdNM">AUTO TAG IG</li><li class="ProdNM">SBAN ULTRA</li><li class="ProdNM">AMAZON (VARIE)</li><li class="ProdNM">AUTO WHATSAPP</li></ol><h4>Anche su ordinazione!</h4><br><br><div class="ontopBAR"><h2>ALTRO</h2><ol style="padding-top:10px;"><li class="ProdNM2" style="list-style-type: disc;">AGGIORNAMENTI GRATUITI</li><li class="ProdNM2" style="list-style-type: disc;">ASSISTENZA GRATIS </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">funzionalità garantita </li><li class="ProdNM2" style="list-style-type: disc;text-transform: uppercase;">no rimborso dopo 3 giorni </li></ol></div><br><br><br><br><button class="btn" onclick="TransformService()">INDIETRO</button><br><br><br><button class="btn" id="SCRLDWD" onclick="ShowProds()">Di più</button>'
 var ctnText = '<a class="btn" style="width:150px;text-align:center" href="https://wa.me/393317704837">WHATSAPP</a><br><br><a class="btn" style="width:150px;text-align:center" href="tel:+393317704837">TELEFONO</a><br><br><a class="btn" href="mailto:automation.it99@gmail.com" style="width:150px;text-align:center">GMAIL</a>'
 var deg = 360
 function TransformService(serviceelem=false){
@@ -574,8 +924,11 @@ function TransformService(serviceelem=false){
   document.getElementById("TEXTFIELD").style.transform = "rotate("+deg+"deg)";
   deg = deg + 360
 }
-document.getElementById("TEXTFIELD").innerHTML = PreText
-  </script>
+document.getElementById("TEXTFIELD").innerHTML = PreText;
+
+
+
+</script>
 
 </body>
 </html>
